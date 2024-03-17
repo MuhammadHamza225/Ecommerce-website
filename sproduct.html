@@ -33,39 +33,26 @@
         </section>
 
         <section id="product-details" class="section-p1">
-            <div class="single-pro-img">
-                <img src="img/products/f1.jpg" width="100%" id="main-img" alt="">
-                <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="img/products/f2.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/products/f3.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/products/f4.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="img/products/f5.jpg" width="100%" class="small-img" alt="">
-                    </div>
-                </div>
-            </div>
-            <div class="single-product-details">
-                <h6>Home / T-Shirts</h6>
-                <h4>Men's Fashion T-Shirts</h4>
-                <h2>$139.00</h2>
-                <select>
-                    <option>Select Size</option>
-                    <option>Small</option>
-                    <option>Large</option>
-                    <option>XL</option>
-                    <option>XXL</option>
-                </select>
-                <input type="number" value="1">
-                <button class="normal">Add To Cart</button>
-                <h4>Product Details</h4>
-                <span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel facilis exercitationem qui nobis dolore tenetur provident libero obcaecati quos vitae! Et minima magnam, esse non quis ducimus, alias qui dicta sed laborum enim, eius voluptates fuga harum pariatur nobis cupiditate beatae accusamus laudantium eveniet facilis. Itaque error suscipit cupiditate sapiente.</span>
-            </div>
+            <!-- from this --><div class="single-pro-img">
+<img src="img/products/f1.jpg" width="100%" id="main-img" alt="">
+<div class="small-img-group">
+    <div class="small-img-col">
+        <img src="img/products/f2.jpg" width="100%" class="small-img" alt="">
+    </div>
+    <div class="small-img-col">
+        <img src="img/products/f3.jpg" width="100%" class="small-img" alt="">
+    </div>
+    <div class="small-img-col">
+        <img src="img/products/f4.jpg" width="100%" class="small-img" alt="">
+    </div>
+    <div class="small-img-col">
+        <img src="img/products/f5.jpg" width="100%" class="small-img" alt="">
+    </div>
+</div>
+</div>
+<div id="single-product-details" class="single-product-details">
+
+</div>
         </section>
 
         <section id="product-1" class="section-p1">
@@ -198,7 +185,32 @@
                 <p>© copyright HTML, CSS Template</p>
             </div>
         </footer>
+        <script src="items.js"></script>
         <script>
+
+            let myId = localStorage.getItem("myid");
+            console.log(myId);
+
+            const element = items.find(({ id }) => id  == myId);
+            console.log(element);
+
+            document.getElementById('single-product-details').innerHTML = `<h6>Home / T-Shirts</h6>
+<h4>${element.item_name}</h4>
+<h2>${element.price}</h2>
+<select>
+    <option>Select Size</option>
+    <option>Small</option>
+    <option>Large</option>
+    <option>XL</option>
+    <option>XXL</option>
+</select>
+<input type="number" value="1">
+<button class="normal">Add To Cart</button>
+<h4>Product Details</h4>
+<span>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vel facilis exercitationem qui nobis dolore tenetur provident libero obcaecati quos vitae! Et minima magnam, esse non quis ducimus, alias qui dicta sed laborum enim, eius voluptates fuga harum pariatur nobis cupiditate beatae accusamus laudantium eveniet facilis. Itaque error suscipit cupiditate sapiente.</span>`;
+
+
+
             let mainImg = document.getElementById('main-img');
             let smallImg = document.getElementsByClassName('small-img');
             smallImg[0].onclick = function(){
